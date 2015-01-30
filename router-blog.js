@@ -7,6 +7,15 @@ Router.configure({
   loadingTemplate: 'Loading'
 });
 
+Router.onBeforeAction(function(){ //Defining this globally.
+  if (Meteor.loggingIn())
+    return;
+  else if (!Meteor.user())
+    this.redirect('home');
+  else
+    this.next();
+}, {only: ['article.new']});
+
 Router.route("/", {name: "home"}); //name is specific to route.  Stays here for use with link helpers
 Router.route('/blog/new', {name: 'article.new'});
 Router.route("/blog/:_id", { name: 'article.show'});

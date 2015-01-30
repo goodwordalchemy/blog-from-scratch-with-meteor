@@ -1,12 +1,5 @@
 HomeController = RouteController.extend({
-  onBeforeAction: function(){
-  	if (Meteor.loggingIn())
-  		return;
-  	else if (!Meteor.user())
-  		this.redirect('home');
-  	else
-  		this.next();
-  },
+  
   action: function(){
   	this.render();
   },

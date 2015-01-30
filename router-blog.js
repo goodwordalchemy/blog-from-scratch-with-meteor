@@ -7,14 +7,21 @@ Router.configure({
   loadingTemplate: 'Loading'
 });
 
-Router.onBeforeAction(function(){ //Defining this globally.
-  if (Meteor.loggingIn())
-    return;
-  else if (!Meteor.user())
-    this.redirect('home');
-  else
-    this.next();
-}, {only: ['article.new']});
+Iron.Router.plugins.authorize = function (router, options) {
+  router.onBeforeAction(function(){ //Defining this globally.
+    if (Meteor.loggingIn())
+      return;
+    else if (!Meteor.user())
+      this.redirect(this.lookupOption('notAuthorizedRoute')); // route can be defined anywhere that options can be provided.  See below in this case.
+    else
+      this.next();
+  }, options);
+};
+
+Router.plugin('authorize', {
+  only: ['article.new'],
+  notAuthorizedRoute: 'home' // <==== option from lookup option above.
+});
 
 Router.route("/", {name: "home"}); //name is specific to route.  Stays here for use with link helpers
 Router.route('/blog/new', {name: 'article.new'});

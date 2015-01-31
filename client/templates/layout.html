@@ -1,10 +1,10 @@
 <template name='Layout'>
 	<div class="container">
-		<h1>Goodword Alchemy</h1>
+		{{#linkTo route="home"}}<h1>Goodword Alchemy</h1>{{/linkTo}}
 		<ul class="nav nav-pills">
-		    <li   role="presentation" class="active"><a href="#">Home</a></li>
-		    <li role="presentation"><a href="#">Profile</a></li>
-		    <li role="presentation"><a href="#">Messages</a></li>
+		    <li   role="presentation"><a href="/invention">{ Invention }</a></li>
+		    <li role="presentation"><a href="/intrigue">{ intrigue }</a></li>
+		    <li role="presentation"><a href="/ideas">{ Ideas }</a></li>
 		</ul>
 	</div>
 	

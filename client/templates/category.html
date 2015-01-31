@@ -1,0 +1,14 @@
+<template name='category'>
+	<div class="container">
+		<h2>{{category}}:</h2>
+		<ul>
+		    {{#each articles}}
+		    	<li>
+		    	{{#linkTo route="article.show"}}
+		    		{{title}}
+		    	{{/linkTo}} 
+		    	</li>
+		    {{/each}}
+		</ul>
+	</div>
+</template>

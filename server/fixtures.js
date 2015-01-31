@@ -11,7 +11,7 @@ Meteor.startup(function(){
 		title: 'Intrigue Article',
 		body: "This is the body of the intrigue article",
 		createdAt: new Date(),
-		category: 'invention',
+		category: 'intrigue',
 	});
 
 	Articles.insert({

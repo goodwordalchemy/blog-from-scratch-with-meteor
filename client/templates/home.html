@@ -1,3 +1,15 @@
-<template name='Home'>
-	
+<template name='home'>
+	<div class="container">
+		<h3>Home:</h3>
+		<ul>
+		    {{#each articles}}
+		    	<li>
+		    	{{#linkTo route="article.show"}}
+		    		{{title}}
+		    	{{/linkTo}} 
+		    	</li>
+		    {{/each}}
+		</ul>
+	</div>
+
 </template>

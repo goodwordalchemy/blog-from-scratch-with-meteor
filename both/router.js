@@ -4,3 +4,4 @@ Router.configure({
 
 Router.route('/', {name: 'home'});
 Router.route('/:category', {name: 'category'});
+Router.route('/:category/:_id', {name: 'article.show'});
